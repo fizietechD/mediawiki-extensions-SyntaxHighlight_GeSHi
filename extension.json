@@ -90,7 +90,6 @@
 	},
 	"Hooks": {
 		"ParserFirstCallInit": "main",
-		"ApiFormatHighlight": "main",
 		"SoftwareInfo": "main",
 		"ResourceLoaderRegisterModules": "main"
 	},
