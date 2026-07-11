@@ -23,8 +23,8 @@ $( () => {
 
 		// s1 is the class applied by Pygments to single-quoted strings
 		// s2 is the class applied by Pygments to double-quoted strings
-		const stringNodes = $content.find( '.s1' ).get()
-			.concat( $content.find( '.s2' ).get() );
+		const stringNodes = $content.find( '.mw-highlight-lang-lua .s1' ).get()
+			.concat( $content.find( '.mw-highlight-lang-lua .s2' ).get() );
 
 		stringNodes.forEach( ( node ) => {
 			let nextNode = node.nextElementSibling,
@@ -50,14 +50,14 @@ $( () => {
 				let partIdx = parts.length - 1;
 				let curNode = prevNode.previousElementSibling;
 				while ( partIdx >= 0 ) {
-					if ( !curNode || curNode.firstChild.nodeValue !== parts[ partIdx ] ) {
+					if ( !curNode || !curNode.firstChild || curNode.firstChild.nodeValue !== parts[ partIdx ] ) {
 						return;
 					}
 					if ( partIdx === 0 ) {
 						break;
 					}
 					const prev = curNode.previousElementSibling;
-					if ( !prev || prev.firstChild.nodeValue !== '.' ) {
+					if ( !prev || !prev.firstChild || prev.firstChild.nodeValue !== '.' ) {
 						return;
 					}
 					curNode = prev.previousElementSibling;
