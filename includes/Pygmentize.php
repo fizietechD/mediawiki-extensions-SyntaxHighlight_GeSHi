@@ -370,7 +370,6 @@ class Pygmentize {
 		MediaWikiServices::getInstance()->getStatsFactory()
 			->getCounter( 'syntaxhighlight_shell_total' )
 			->setLabel( 'type', $type )
-			->copyToStatsdAt( "syntaxhighlight_shell.$type" )
 			->increment();
 	}
 }
